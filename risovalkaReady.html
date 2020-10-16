@@ -27,7 +27,7 @@
 		document.getElementById('pole').innerHTML=code;
 		colorCode='<tr>';
 		for(i=0; i<colors.length; i++){
-			colorCode+='<td onclick="kraska("'+colors[i]+'")" id="color'+(i+1)+'" style="background-color:'+colors[i]+'"></td>';
+			colorCode+='<td onclick="kraska(&quot'+colors[i]+'&quot)" id="color'+(i+1)+'" style="background-color:'+colors[i]+'"></td>';
 		}
 		colorCode+='</tr>';
 		document.getElementById('kraski').innerHTML=colorCode;
