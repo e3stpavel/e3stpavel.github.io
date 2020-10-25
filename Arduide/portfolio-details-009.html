@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KY-009 - Arduide</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link href="assets/ard/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/ard/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/ard/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/ard/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/ard/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/ard/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/ard/aos/aos.css" rel="stylesheet">
+  <link href="assets/ard/codblock/codBlock.css" rel="stylesheet">
+  
+
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.html"><span>Arduide</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="index.html#hero">Главная</a></li>
+          <li><a href="index.html#about">О ресурсе</a></li>
+          <li class="drop-down"><a href="index.html#showselection">Модули</a>
+			<ul>
+			<li><a href="list.html">Лист</a></li>
+			<li><a href="cards.html">Карточки</a></li>
+			<li><a href="table.html">Таблица</a></li>
+			<li><a href="big_cards.html">Большие карточки</a></li>
+			</ul>
+		  </li>
+          <li><a href="index.html#sources">Источники</a></li>
+          <li><a href="index.html#contact">Контакты</a></li>
+
+          <li class="get-started"><a href="#" class="btn disabled" role="button" aria-disabled="true">RU</a></li>
+		  <li><a href="working.html">ENG</a></li>
+		  <li><a href="working.html">EST</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>KY-009 3-color LED SMD module</h2>
+          <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="index.html#showselection">Модули</a></li>
+			<li>KY-009</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8">
+            <h2 class="portfolio-title">Фотографии и информация</h2>
+            <div class="owl-carousel portfolio-details-carousel">
+              <img src="assets/img/portfolio/KY009.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-4 portfolio-info">
+            <h3>Информация:</h3>
+            <ul>
+              <li><strong>Категория</strong>: Лампочки</li>
+              <li><strong>Код №1</strong>: KY-009</li>
+              <li><strong>Код №2</strong>: (SP0007)</li>
+              <li><strong>Дата добавления</strong>: 25 Октября, 2020</li>
+			  <li><strong>Краткое описание</strong>:</li>
+				<p>
+				  “KY-009″ — модуль выполнен на печатной плате с установленным 3-х цветным RGB SMD светодиодом (модель 5050) и имеет 3 входа для управления и получения нужного цвета излучения светодиода (красный, зеленый и синий). На плате нет токоограничительных резисторов, поэтому их нужно подключить самостоятельно. Например при подключении к платам Arduino или питании от 5 В нужны такие резисторы:
+				<ol>
+					<li>180 Ом для “R” входа</li>
+					<li>100 Ом для “G” входа</li>
+					<li>100 Ом для “B” входа</li>
+				</ol>
+				</p>
+			</ul>
+          </div>
+        </div>
+
+		<div class="row" style="padding-top: 25px;">
+			
+			<div class="col-lg-8">
+				<h2 class="portfolio-title">Схема подключения</h2>
+				<img src="assets/img/portfolio/KY009Con.jpg" class="img-fluid" alt="Схема подключения KY-009">
+			</div>
+			
+			<div class="col-lg-4 portfolio-info">
+            <h3>Легенда:</h3>
+            <ul>
+              <li><strong>"R"</strong> — плюс управления красным цветом</li>
+              <li><strong>"G"</strong> — плюс управления зеленым цветом</li>
+			  <li><strong>"B"</strong> — плюс управления синим цветом</li>
+              <li><strong>"-"</strong> — общий</li>
+			</ul>
+          </div>
+			
+		</div>
+		  
+		<div class="row" style="padding-top: 25px;">
+			
+			<div class="col-lg-12">
+				<h2 class="portfolio-title">Код для подключения</h2>
+				
+				<div class="browser">
+				  <div class="browser__header">
+					<i></i>
+					<i></i>
+					<i></i>
+				  </div>
+
+				  <div class="browser__content user-select-all">
+					<h1>Недоступно</h1>
+				  </div>
+
+				  <div class="toggle">
+					<input type="checkbox" id="toggle">
+					<label for="toggle"></label>
+				  </div>
+
+				</div>
+				
+			</div>
+
+		</div>
+		  
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>Vesperr</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="index.html#hero" class="scrollto">Главная</a>
+            <a href="index.html#about" class="scrollto">О ресурсе</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/ard/jquery/jquery.min.js"></script>
+  <script src="assets/ard/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/ard/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/ard/php-email-form/validate.js"></script>
+  <script src="assets/ard/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/ard/counterup/counterup.min.js"></script>
+  <script src="assets/ard/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/ard/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/ard/venobox/venobox.min.js"></script>
+  <script src="assets/ard/aos/aos.js"></script>
+  <script src="assets/ard/codblock/codBlock.js" type="text/javascript"></script>
+	
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+	
+
+
+</body>
+
+</html>
