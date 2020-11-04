@@ -12,19 +12,6 @@
 	input, label {
 		margin: 5px 5px;
 	}
-/*
-	.form-group1 {
-		margin: 10px;
-		width: 450px;
-		display: inline-block;
-		float: left;
-	}
-	
-	.form-group2 {
-		display: inline-block;
-		margin: 10px;
-		width: 450px;
-	}*/
 
 	.form-control {
 		float: left;
@@ -177,6 +164,16 @@
 	terms[0][38] = "Выбор времени конца периода получения товара:";
 	terms[0][39] = "Согласие с правилами предоставления услуги:";
 	terms[0][40] = "Подтвердить";
+	terms[0][41] = "Ошибка";
+	terms[0][42] = "Не все поля были заполнены";
+	terms[0][43] = "Закрыть";
+	terms[0][44] = "Не все поля были заполнены правильно! Проверьте их пожалуйста!";
+	terms[0][45] = "Удача!";
+	terms[0][46] = "Все в порядке! Спасибо за заполнение этой формы:)";
+	terms[0][47] = "Поле не заполнено!";
+	terms[0][48] = "Значение поля введено не правильно!";
+	terms[0][49] = "Все верно!";
+	terms[0][50] = "Закрыть и перезагрузить страницу";
 	
 	terms[1] = Array();
 	terms[1][0] = "Tagasiside ankeet";
@@ -220,6 +217,16 @@
 	terms[1][38] = "Kauba kättesaamise perioodi lõpu valimine:";
 	terms[1][39] = "Nõusolek teenuse osutamise tingimustega:";
 	terms[1][40] = "Kinnita";
+	terms[1][41] = "Viga!";
+	terms[1][42] = "Kõiki välju ei täidetud";
+	terms[1][43] = "Sulge";
+	terms[1][44] = "Kõiki välju pole õigesti täidetud! Palun kontrollige õigekirja!";
+	terms[1][45] = "Edu!";
+	terms[1][46] = "Kõik on korras! Täname esitamast:)";
+	terms[1][47] = "Välja pole veel täidetud!";
+	terms[1][48] = "Välja väärtus on vale!";
+	terms[1][49] = "Pole viga!";
+	terms[1][50] = "Sulge ja laadi leht uuesti";
 	
 	terms[2] = Array();
 	terms[2][0] = "Backlink anket";
@@ -263,6 +270,16 @@
 	terms[2][38] = "Choose end time when you wanna get a package:";
 	terms[2][39] = "Accept the terms and conditions:";
 	terms[2][40] = "Submit";
+	terms[2][41] = "Error!";
+	terms[2][42] = "Not all the fields have been filled!!!";
+	terms[2][43] = "Close";
+	terms[2][44] = "Not all the fields have been filled correctly! Check spelling please!";
+	terms[2][45] = "Success!";
+	terms[2][46] = "All is fine! Thanks for submitting:)";
+	terms[2][47] = "Field hasn't been filled yet!";
+	terms[2][48] = "Field value was entered incorrectly!";
+	terms[2][49] = "All right!";
+	terms[2][50] = "Close and reload the page";
 	
 	
 	function tranSlate(n){
@@ -310,8 +327,40 @@
 		document.getElementById("viborTimeEnd").innerHTML = terms[n][38];
 		document.getElementById("uselessSign").innerHTML = terms[n][39];
 		document.getElementById("btnToDis").innerHTML = terms[n][40];
+		document.getElementById("myModalLabel").innerHTML = terms[n][41];
+		document.getElementById("myModalLabel2").innerHTML = terms[n][41];
+		document.getElementById("myModalLabel3").innerHTML = terms[n][45];
+		document.getElementById("ErrorMessagePlace").innerHTML = terms[n][42]; 
+		document.getElementById("ErrorMessagePlace2").innerHTML = terms[n][44]; 
+		document.getElementById("ErrorMessagePlace3").innerHTML = terms[n][46]; 
+		document.getElementById("clBtn").innerHTML = terms[n][43];
+		document.getElementById("clBtn2").innerHTML = terms[n][43];
+		document.getElementById("clBtn3").innerHTML = terms[n][50];
 		
 		////////
+		
+		document.getElementById("3Er").innerHTML = terms[n][47];
+		document.getElementById("3Ok").innerHTML = terms[n][49];
+		document.getElementById("4Er").innerHTML = terms[n][47];
+		document.getElementById("4Ok").innerHTML = terms[n][49];
+		document.getElementById("1Er").innerHTML = terms[n][48];
+		document.getElementById("1Ok").innerHTML = terms[n][49];
+		document.getElementById("EEr").innerHTML = terms[n][48];
+		document.getElementById("EOk").innerHTML = terms[n][49];
+		document.getElementById("TEr").innerHTML = terms[n][48];
+		document.getElementById("TOk").innerHTML = terms[n][49];
+		document.getElementById("CEr").innerHTML = terms[n][47];
+		document.getElementById("COk").innerHTML = terms[n][49];
+		document.getElementById("SEr").innerHTML = terms[n][47];
+		document.getElementById("SOk").innerHTML = terms[n][49];
+		document.getElementById("CountyEr").innerHTML = terms[n][47];
+		document.getElementById("CountyOk").innerHTML = terms[n][49];
+		document.getElementById("CntryEr").innerHTML = terms[n][47];
+		document.getElementById("CntryOk").innerHTML = terms[n][49];
+		document.getElementById("2Er").innerHTML = terms[n][48];
+		document.getElementById("2Ok").innerHTML = terms[n][49];
+		
+		///////
 		
 		if(n == 1){
 			document.getElementById("est").className += " active";
@@ -328,10 +377,6 @@
 		}
 		
 	}
-	
-	function CheckThisOut(){
-		$('#myModal').modal('show');
-	}
 </script>
 
 </head>
@@ -344,7 +389,7 @@
   	<button id="est" class="tablinks" onClick="tranSlate(1)">EST</button>
 </div>
 
-<div class="tabcontent col-12">
+<div class="tabcontent col-12" id="myForm">
 	
 	
 	<div class="form-group">
@@ -352,17 +397,21 @@
 	<h3 id="1header">Персональная информация</h3>
 	<form id="formPerson" class="form">
 	<label id="lastName" for="lname">Фамилия:</label><br>
-	<input type="text" id="lname" name="lname" maxlength="128" required> <!--pattern="[^\d]+"--><br><br>
+	<input type="text" id="lname" name="lname" maxlength="128" onchange="lNameCheck()" required> <!--pattern="[^\d]+"-->
+		<label class="erLabel" id="3Er">Поле не заполнено!</label>
+		<label class="okLabel" id="3Ok">Все верно!</label>
 	<label id="firstName" for="firstName">Имя:</label><br>
-	<input type="text" id="fname" name="fname" maxlength="128" required><br><br>
+	<input type="text" id="fname" name="fname" maxlength="128" onchange="fNameCheck()" required>
+		<label class="erLabel" id="4Er">Поле не заполнено!</label>
+		<label class="okLabel" id="4Ok">Все верно!</label>
 	<label id="isiku" for="isikCod">Персональный код:</label><br>
 	<input type="text" id="isikCod" name="isikCod" onchange="IsikuKood()" required>
 		<label class="erLabel" id="1Er">Значение поля введено не правильно!</label>
-		<label class="okLabel" id="1Ok">Все верно!</label><br><br>
+		<label class="okLabel" id="1Ok">Все верно!</label>
 	<label id="BDay" for="birthday">Дата рождения:</label><br>
-	<input type="date" id="birthday" name="birthday" min="1900-01-01" max="2120-01-01" required><br><br>
-	
-	<label id="Gen">Пол:</label><br>
+	<input type="date" id="birthday" name="birthday" min="1900-01-01" max="2120-01-01" required>
+
+	<label id="Gen" onchange="checkGender()">Пол:</label><br>
 	<input type="radio" id="male" name="gender" value="male" required>
 	<label id="M" for="male">Мужчина</label><br>
 	<input type="radio" id="female" name="gender" value="female" required>
@@ -370,9 +419,8 @@
 	<input type="radio" id="other" name="gender" value="other" required>
 	<label id="O" for="other">Другой</label>
 	
-	<br><br>
-	<input type="checkbox" id="more18" name="more18" value="More18">
-	<label id="Adult" for="more18"> Мне больше 18 лет</label><br><br>
+	<br><input type="checkbox" id="more18" name="more18" value="More18">
+	<label id="Adult" for="more18"> Мне больше 18 лет</label>
 	
 	</form>	
 	</div>
@@ -382,12 +430,16 @@
 	<form id="formConnect" class="form">	
 	
 	<label id="eM" for="email">Адрес электронной почты:</label>
-	<input type="email" id="email" name="email"  maxlength="256" required><br><br>
+	<input type="email" id="email" name="email"  maxlength="256" onchange="emailValidation()" required>
+		<label class="erLabel" id="EEr">Значение поля введено не правильно!</label>
+		<label class="okLabel" id="EOk">Все верно!</label>
 
 	<label id="pN" for="phone">Номер телефона с кодом:</label>
-	<input type="tel" id="phone" name="phone" pattern="\+[0-9]{3}[0-9]{4}[0-9]{4}" maxlength="256" required placeholder="+37255555555"><br><br>
+	<input type="tel" id="phone" name="phone" pattern="\+[0-9]{3}[0-9]{4}[0-9]{4}" maxlength="256" required placeholder="+37255555555" onchange="TelValidation()">
+		<label class="erLabel" id="TEr">Значение поля введено не правильно!</label>
+		<label class="okLabel" id="TOk">Все верно!</label>
 	
-	<label id="oC" for="otherConnect">Другой способ связи:</label>
+	<br><label id="oC" for="otherConnect">Другой способ связи:</label>
 	<input type="checkbox" id="otherConnect" name="otherConnect" value="Other" onclick="otherCon()">
 	<input type="text" id="otherConnectText" name="otherConnect" onclick="otherCon()" placeholder="Введите тут"  maxlength="64000" disabled><br><br>
 	
@@ -442,13 +494,21 @@
 	</div>
 		
 	<label id="plaze" >Указание адреса доставки с почтовым индексом:</label><br> 
-	<input type="street" class="form-control" id="autocomplete" placeholder="Street" maxlength="256" required>
-	<input type="city" class="form-control" id="inputCity" placeholder="City" maxlength="256" required>
-	<input type="zip" class="form-control" id="inputZip" onclick="checkZip()" placeholder="Zip" required><br><br>
+	<input type="street" class="form-control" id="autocomplete" placeholder="Street" maxlength="256" onchange="streetValidation()" required>
+		<label class="erLabel" id="SEr">Поле не заполнено!</label>
+		<label class="okLabel" id="SOk">Все верно!</label>
+	<input type="city" class="form-control" id="inputCity" placeholder="City" maxlength="256" onchange="cityValidation()" required>
+		<label class="erLabel" id="CEr">Поле не заполнено!</label>
+		<label class="okLabel" id="COk">Все верно!</label>
+	<input type="zip" class="form-control" id="inputZip" onchange="checkZip()" placeholder="Zip" required><br><br>
 		<label class="erLabel" id="2Er">Значение поля введено не правильно!</label>
 		<label class="okLabel" id="2Ok">Все верно!</label>
-	<input type="county" class="form-control" id="inputCounty" placeholder="County" maxlength="256" required>
-	<input type="country" class="form-control" id="inputCountry" placeholder="Country" maxlength="256" required><br><br>
+	<input type="county" class="form-control" id="inputCounty" placeholder="County" maxlength="256" onchange="countyValidation()" required>
+		<label class="erLabel" id="CountyEr">Поле не заполнено!</label>
+		<label class="okLabel" id="CountyOk">Все верно!</label>
+	<input type="country" class="form-control" id="inputCountry" placeholder="Country" maxlength="256" onchange="countryValidation()" required><br><br>
+		<label class="erLabel" id="CntryEr">Поле не заполнено!</label>
+		<label class="okLabel" id="CntryOk">Все верно!</label>
 	
 	</form>
 	</div>
@@ -493,74 +553,224 @@
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			<h5 class="modal-title" id="myModalLabel">Error!!!!</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>
-		  <div class="modal-body">
-			...
+		  <div class="modal-body" id="ErrorMessagePlace">
+			
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary">Save changes</button>
+			<button type="button" class="btn btn-primary" data-dismiss="modal" id="clBtn" onclick="checkFields()">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+<!-- Modal 2-->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="myModalLabel2">Error!!!!</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body" id="ErrorMessagePlace2">
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal" id="clBtn2" >Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+<!-- Modal 3-->
+	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="myModalLabel3">Error!!!!</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body" id="ErrorMessagePlace3">
+			
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal" id="clBtn3" onclick="window.location.reload();">Close</button>
 		  </div>
 		</div>
 	  </div>
 	</div>
 
-	
 	<script language="javascript">
 
-	/*function Check() {
-	let allAreFilled = true;
-	
-	const emailField = document.getElementById("email");
-	const telField = document.getElementById("phone");
-
-	isValidEmail = emailField.checkValidity();
-	isValidTel = telField.checkValidity();
-	
-	document.getElementById("myForm").querySelectorAll("[required]").forEach(function(i) {
-		if (!allAreFilled) return;
-		if (!i.value) allAreFilled = false;
-		if (i.type === "radio") {
-			let radioValueCheck = false;
-			document.getElementById("myForm").querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
-			if (r.checked) radioValueCheck = true;
+	function CheckThisOut(){
+		let allAreFilled = true;
+		document.getElementById("myForm").querySelectorAll("[required]").forEach(function(i) {
+			if (!allAreFilled) return;
+			if (!i.value) allAreFilled = false;
+			if (i.type === "radio") {
+				let radioValueCheck = false;
+				document.getElementById("myForm").querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
+				if (r.checked) radioValueCheck = true;
+			})
+			allAreFilled = radioValueCheck;
+			}
 		})
-		allAreFilled = radioValueCheck;
-		}
-	})
-	if (!allAreFilled) {
-		alert('Не все поля заполнены! Вам следует заполнить все поля!!!');
-	}
-	else if(!isValidEmail){
-		alert('Поле email не правильно заполнено!');
-	}
-	else if(!isValidTel){
-		alert('Поле номер телефона с кодом не правильно заполнено!');
-	}
-	};*/
-		
-	/*function check4Adult(){
-		console.log(document.getElementById("birthday").valueAsDate);
-		/*if(document.getElementById("birthday").valueAsDate == "2002-01-01"){
-			document.getElementById("more18").disabled = true;
+		if (!allAreFilled) {
+			$("#myModal").modal('show');
+			}
+		else{
+				if(document.getElementById("1Er").style.display == "block" || document.getElementById("2Er").style.display == "block" || document.getElementById("3Er").style.display == "block" || document.getElementById("4Er").style.display == "block" || document.getElementById("EEr").style.display == "block" || document.getElementById("TEr").style.display == "block" || document.getElementById("SEr").style.display == "block" || document.getElementById("CEr").style.display == "block" || document.getElementById("CountyEr").style.display == "block" || document.getElementById("CntryEr").style.display == "block"){
+					$("#myModal2").modal('show');
+				}
+				else{
+					$("#myModal3").modal('show');
+				}
+			}
+			
 		}
 		
-	}*/
+		function checkFields(){
+			
+			if(document.getElementById("lname").value == ''){
+				document.getElementById("lname").focus();
+				document.getElementById("lname").style.backgroundColor = "red";
+				/*document.getElementById("lNerr").style.display = "block";*/
+			}else if(document.getElementById("fname").value == ""){
+				document.getElementById("fname").focus();
+				document.getElementById("fname").style.backgroundColor = "red";
+			}else if(document.getElementById("isikCod").value == ""){
+				document.getElementById("isikCod").focus();
+				document.getElementById("isikCod").style.backgroundColor = "red";
+			}else if(isNaN(document.getElementById("birthday").valueAsNumber)){
+				document.getElementById("birthday").focus();
+				document.getElementById("birthday").style.backgroundColor = "red";
+			}
+			else if(checkGender() == false){
+				document.getElementById("Gen").focus();
+				document.getElementById("Gen").style.backgroundColor = "red";
+			}else if(document.getElementById("email").value == ""){
+				document.getElementById("email").focus();
+				document.getElementById("email").style.backgroundColor = "red"; 
+			}else if(document.getElementById("phone").value == ""){
+				document.getElementById("phone").focus();
+				document.getElementById("phone").style.backgroundColor = "red"; 
+			}else if(checkMod() == false){
+				document.getElementById("variPack").focus();
+				document.getElementById("variPack").style.backgroundColor = "red";
+			}else if(checkDelivery() == false){
+				document.getElementById("sposob").focus();
+				document.getElementById("sposob").style.backgroundColor = "red";
+			}else if(document.getElementById("autocomplete").value == ""){
+				document.getElementById("autocomplete").focus();
+				document.getElementById("autocomplete").style.backgroundColor = "red"; 
+			}else if(document.getElementById("inputCity").value == ""){
+				document.getElementById("inputCity").focus();
+				document.getElementById("inputCity").style.backgroundColor = "red"; 
+			}else if(document.getElementById("inputZip").value == ""){
+				document.getElementById("inputZip").focus();
+				document.getElementById("inputZip").style.backgroundColor = "red"; 
+			}else if(document.getElementById("inputCounty").value == ""){
+				document.getElementById("inputCounty").focus();
+				document.getElementById("inputCounty").style.backgroundColor = "red"; 
+			}else if(document.getElementById("inputCountry").value == ""){
+				document.getElementById("inputCountry").focus();
+				document.getElementById("inputCountry").style.backgroundColor = "red"; 
+			}else if(isNaN(document.getElementById("recieveDay").valueAsNumber)){
+				document.getElementById("recieveDay").focus();
+				document.getElementById("recieveDay").style.backgroundColor = "red"; 
+			}else if(isNaN(document.getElementById("endDay").valueAsNumber)){
+				document.getElementById("endDay").focus();
+				document.getElementById("endDay").style.backgroundColor = "red"; 
+			}else if(isNaN(document.getElementById("recieveTime").valueAsNumber)){
+				document.getElementById("recieveTime").focus();
+				document.getElementById("recieveTime").style.backgroundColor = "red"; 
+			}else if(isNaN(document.getElementById("endTime").valueAsNumber)){
+				document.getElementById("endTime").focus();
+				document.getElementById("endTime").style.backgroundColor = "red"; 
+			}
+				
+			/////////
+				
+			if(document.getElementById("birthday").valueAsNumber > 0){
+				setRColor("birthday");
+			}
+			if(document.getElementById("recieveDay").valueAsNumber > 0){
+				setRColor("recieveDay");
+			}
+			if(document.getElementById("endDay").valueAsNumber > 0){
+				setRColor("endDay");
+			}
+			if(document.getElementById("recieveTime").valueAsNumber > 0){
+				setRColor("recieveTime");
+			}
+			if(document.getElementById("endTime").valueAsNumber > 0){
+				setRColor("endTime");
+			}
+		}
 		
 	document.getElementById("recieveDay").valueAsDate = new Date();
 	document.getElementById("endDay").valueAsDate = new Date();
 	function EqualTime() {
 		document.getElementById("endTime").value = document.getElementById("recieveTime").value;
 	}
+	
+	function countryValidation(){
+		if(document.getElementById("inputCountry").value == ""){
+			document.getElementById("CntryEr").style.display = "block";
+			document.getElementById("CntryOk").style.display = "none";
+		}else{
+			document.getElementById("CntryEr").style.display = "none";
+			document.getElementById("CntryOk").style.display = "block";
+			setRColor("inputCountry");
+		}
+	}
+	
+	function countyValidation(){
+		if(document.getElementById("inputCounty").value == ""){
+			document.getElementById("CountyEr").style.display = "block";
+			document.getElementById("CountyOk").style.display = "none";
+		}else{
+			document.getElementById("CountyEr").style.display = "none";
+			document.getElementById("CountyOk").style.display = "block";
+			setRColor("inputCounty");
+		}
+	}
+		
+	function cityValidation(){
+		if(document.getElementById("inputCity").value == ""){
+			document.getElementById("CEr").style.display = "block";
+			document.getElementById("COk").style.display = "none";
+		}else{
+			document.getElementById("CEr").style.display = "none";
+			document.getElementById("COk").style.display = "block";
+			setRColor("inputCity");
+		}
+	}
+		
+	function streetValidation(){
+		if(document.getElementById("autocomplete").value == ""){
+			document.getElementById("SEr").style.display = "block";
+			document.getElementById("SOk").style.display = "none";
+		}else{
+			document.getElementById("SEr").style.display = "none";
+			document.getElementById("SOk").style.display = "block";
+			setRColor("autocomplete");
+		}
+	}	
 		
 	function checkZip(){
 		if(/\d{6}/.test(document.getElementById("inputZip").value)){
 			document.getElementById("2Ok").style.display = "block";
 			document.getElementById("2Er").style.display = "none";
+			setRColor("inputZip");
 		}else if(document.getElementById("inputZip").value == ""){
 			document.getElementById("2Er").style.display = "block";
 			document.getElementById("2Ok").style.display = "none";
@@ -572,16 +782,26 @@
 	
 	function lNameCheck(){
 		if(document.getElementById("lname").value == ""){
-			document.getElementById("2Er").style.display = "block";
-			document.getElementById("2Ok").style.display = "none";
-		}else if(/\d/.test(document.getElementById("lname").value)){
-			document.getElementById("2Ok").style.display = "block";
-			document.getElementById("2Er").style.display = "none";
+			console.log(document.getElementById("lname").value);
+			document.getElementById("3Er").style.display = "block";
+			document.getElementById("3Ok").style.display = "none";
 		}else{
-			document.getElementById("2Er").style.display = "block";
-			document.getElementById("2Ok").style.display = "none";
+			document.getElementById("3Er").style.display = "none";
+			document.getElementById("3Ok").style.display = "block";
+			setRColor("lname");
 		}
 	}	
+		
+	function fNameCheck(){
+		if(document.getElementById("fname").value == ""){
+			document.getElementById("4Er").style.display = "block";
+			document.getElementById("4Ok").style.display = "none";
+		}else{
+			document.getElementById("4Er").style.display = "none";
+			document.getElementById("4Ok").style.display = "block";
+			setRColor("fname");
+		}
+	}
 		
 		
 	function IsikuKood(){
@@ -591,9 +811,64 @@
 		}else if(/\d{11}/.test(document.getElementById("isikCod").value)){
 			document.getElementById("1Ok").style.display = "block";
 			document.getElementById("1Er").style.display = "none";
+			setRColor("isikCod");
 		}else{
 			document.getElementById("1Er").style.display = "block";
 			document.getElementById("1Ok").style.display = "none";
+		}
+	}
+		
+	function TelValidation(){
+		if(document.getElementById("phone").value == ""){
+			document.getElementById("TEr").style.display = "block";
+			document.getElementById("TOk").style.display = "none";
+		}else if(/\+[0-9]{3}[0-9]{4}[0-9]{4}/.test(document.getElementById("phone").value)){
+			document.getElementById("TOk").style.display = "block";
+			document.getElementById("TEr").style.display = "none";
+			setRColor("phone");
+		}else{
+			document.getElementById("TEr").style.display = "block";
+			document.getElementById("TOk").style.display = "none";
+		}
+	}	
+	
+	function checkGender() {
+    	if(document.getElementById("male").checked || document.getElementById("female").checked || document.getElementById("other").checked){
+			setRColor("Gen");
+			return true;
+		}else{
+			return false;
+		}
+	}
+		
+	function checkMod() {
+    	if(document.getElementById("default").checked || document.getElementById("mod1").checked || document.getElementById("mod2").checked){
+			setRColor("variPack");
+			return true;
+		}else{
+			return false;
+		}
+	}
+		
+	function checkDelivery() {
+    	if(document.getElementById("post").checked || document.getElementById("automat").checked || document.getElementById("myself").checked){
+			setRColor("sposob");
+			return true;
+		}else{
+			return false;
+		}
+	}
+		
+	function emailValidation(){
+		const emailField = document.getElementById("email");
+		var isValidEmail = emailField.checkValidity();
+		if(!isValidEmail){
+			document.getElementById("EEr").style.display = "block";
+			document.getElementById("EOk").style.display = "none";
+		}else{
+			document.getElementById("EEr").style.display = "none";
+			document.getElementById("EOk").style.display = "block";
+			setRColor("email");
 		}
 	}
 	
@@ -605,12 +880,14 @@
 			document.getElementById("otherConnectText").value = null;
 		}
 	}
+		
 	
 	function termsChecked(){
 		if(document.getElementById("termsAndConditions").checked){
 			document.getElementById("btnToDis").disabled = false;
 		}else{
 			document.getElementById("btnToDis").disabled = true;
+			//errMessage = "Eror!";
 		}
 	}
 
@@ -633,20 +910,9 @@
 	  }
 	  for (var i = 0; i < buttons.length; i++)
 		buttons[i].addEventListener("change", setWay);
-	
-	
-	function openIt(evt, lang) {
-  		var i, tabcontent, tablinks;
-  		tabcontent = document.getElementsByClassName("tabcontent");
-  		for (i = 0; i < tabcontent.length; i++) {
-    		tabcontent[i].style.display = "none";
-  		}
-  		tablinks = document.getElementsByClassName("tablinks");
-  		for (i = 0; i < tablinks.length; i++) {
-    		tablinks[i].className = tablinks[i].className.replace(" active", "");
-  		}
-  		document.getElementById(lang).style.display = "block";
-  		evt.currentTarget.className += " active";
+		
+	function setRColor(iD){
+		document.getElementById(iD).style.backgroundColor = "white";
 	}
 	
 	</script>
