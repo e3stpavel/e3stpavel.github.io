@@ -1,0 +1,657 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Tasks 02_11_2020</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+<style>
+	.form{
+		
+	}
+	
+	input, label {
+		margin: 5px 5px;
+	}
+/*
+	.form-group1 {
+		margin: 10px;
+		width: 450px;
+		display: inline-block;
+		float: left;
+	}
+	
+	.form-group2 {
+		display: inline-block;
+		margin: 10px;
+		width: 450px;
+	}*/
+
+	.form-control {
+		float: left;
+	}
+
+	#inputStreet {
+		width: 100%;
+	}
+
+	#inputCity {
+		width: 50%;
+	}
+
+	#inputState {
+		width: 15%;
+	}
+
+	#inputZip {
+		width: 28%;
+	}
+
+	#inputCounty {
+		width: 45%;
+	}
+
+	#inputCountry {
+		width: 50%;
+	}
+	
+	.row{
+		margin: 10px;
+		padding-top: 30px;
+		width: 450px;
+		display: inline-block;
+		float: left;
+	}
+	
+	#row1{
+		width: 200px;
+	}
+	
+	#row3{
+		width: 350px;
+		
+	}
+	
+	#row2{
+		width: 380px;
+	}
+	
+	#row4{
+		float: right;
+		padding-top: 0px;
+	}
+	
+	.erLabel{
+		color: red;
+		display: none;
+	}
+	
+	.okLabel{
+		color: green;
+		display: none;
+	}
+	
+	.tab {
+	  	overflow: hidden;
+	  	
+	}
+
+	.tab button {
+	  	background-color: inherit;
+	  	float: right;
+	  	border: none;
+	  	outline: none;
+	  	cursor: pointer;
+	  	padding: 14px 16px;
+	  	transition: 0.3s;
+	  	font-size: 17px;
+	}
+	
+	.tab label {
+	  	background-color: inherit;
+	  	float: left;
+	  	border: none;
+	  	outline: none;
+		padding-left: 16px;
+	  	transition: 0.3s;
+	  	font-size: 27px;
+		font-weight: 900;
+	}
+
+	.tab button:hover {
+	  	background-color: #ddd;
+	}
+
+	.tab button.active {
+	  background-color: #ccc;
+	}
+
+	.tabcontent {
+	  display: block;
+	  padding: 6px 12px;
+	  border-top: none;
+	}
+	
+</style>
+
+<script language="javascript">
+	terms=Array();
+	terms[0] = Array();
+	terms[0][0] = "Форма обратной связи";
+	terms[0][1] = "Имя:";
+	terms[0][2] = "Фамилия:";
+	terms[0][3] = "Персональная информация:";
+	terms[0][4] = "Персональный код:";
+	terms[0][5] = "Дата рождения:";
+	terms[0][6] = "Пол:";
+	terms[0][7] = "Мужчина";
+	terms[0][8] = "Женщина";
+	terms[0][9] = "Другой"; 
+	terms[0][10] = "Мне больше 18 лет";
+	terms[0][11] = "Контакты";
+	terms[0][12] = "Адрес электронной почты:";
+	terms[0][13] = "Номер телефона с кодом:";
+	terms[0][14] = "Другой способ связи:";
+	terms[0][15] = "Введите тут";
+	terms[0][16] = "Товар и его доставка";
+	terms[0][17] = "Выбор варианта предоставляемого товара:";
+	terms[0][18] = "Стандартная";
+	terms[0][19] = "Модификация 1";
+	terms[0][20] = "Модификация 2";
+	terms[0][21] = "Выбрать способ доставки:";
+	terms[0][22] = "прислать по почте";
+	terms[0][23] = "заберу из почтового автомата";
+	terms[0][24] = "заберу сам из представительства";
+	terms[0][25] = "Указание адреса доставки с почтовым индексом:";
+	terms[0][26] = "Улица";
+	terms[0][27] = "Город";
+	terms[0][28] = "Почтовый индекс";
+	terms[0][29] = "Уезд";
+	terms[0][30] = "Страна";
+	terms[0][31] = "Выбор варианта почтового отделения:";
+	terms[0][32] = "Выбор варианта почтового автомата доставки:";
+	terms[0][33] = "Выбор варианта почтового представительства:";
+	terms[0][34] = "Выбор времени получения товара";
+	terms[0][35] = "Выбор даты начала периода получения товара:";
+	terms[0][36] = "Выбор времени начала периода получения товара:";
+	terms[0][37] = "Выбор даты конца периода получения товара:";
+	terms[0][38] = "Выбор времени конца периода получения товара:";
+	terms[0][39] = "Согласие с правилами предоставления услуги:";
+	terms[0][40] = "Подтвердить";
+	
+	terms[1] = Array();
+	terms[1][0] = "Tagasiside ankeet";
+	terms[1][1] = "Nimi:";
+	terms[1][2] = "Perekonnanimi:";
+	terms[1][3] = "Sinu info:";
+	terms[1][4] = "Isikukood:";
+	terms[1][5] = "Sünnipäev:";
+	terms[1][6] = "Sugu:";
+	terms[1][7] = "Mees";
+	terms[1][8] = "Naine";
+	terms[1][9] = "Teine";
+	terms[1][10] = "Ma olen juba 18";
+	terms[1][11] = "Kontaktid";
+	terms[1][12] = "E-mail:";
+	terms[1][13] = "Telefoni number:";
+	terms[1][14] = "Teine valik:";
+	terms[1][15] = "Kirjutate siin";
+	terms[1][16] = "Kaup ja tema kohaletoimetamine";
+	terms[1][17] = "Pakutava toote variandi valimine:";
+	terms[1][18] = "Standart";
+	terms[1][19] = "Muutus 1";
+	terms[1][20] = "Muutus 2";
+	terms[1][21] = "Valige kohaletoimetamise viis:";
+	terms[1][22] = "saata posti teel";
+	terms[1][23] = "postiautomati teel";
+	terms[1][24] = "ma teen ise esindusest";
+	terms[1][25] = "Teie aadress:";
+	terms[1][26] = "Tänav";
+	terms[1][27] = "Linn";
+	terms[1][28] = "Postiindeks";
+	terms[1][29] = "Maakond";
+	terms[1][30] = "Riik";
+	terms[1][31] = "Postkontori valimine:";
+	terms[1][32] = "Postiautomaadi valimine:";
+	terms[1][33] = "Postesinduse valimine:";
+	terms[1][34] = "Kauba kättesaamise aja valimine";
+	terms[1][35] = "Kauba kättesaamise perioodi alguskuupäeva valimine:";
+	terms[1][36] = "Kauba kättesaamise algusaja valimine:";
+	terms[1][37] = "Kauba vastuvõtmise perioodi lõppkuupäeva valimine:";
+	terms[1][38] = "Kauba kättesaamise perioodi lõpu valimine:";
+	terms[1][39] = "Nõusolek teenuse osutamise tingimustega:";
+	terms[1][40] = "Kinnita";
+	
+	terms[2] = Array();
+	terms[2][0] = "Backlink anket";
+	terms[2][1] = "Firstname:";
+	terms[2][2] = "Lastname:";
+	terms[2][3] = "Personal info:";
+	terms[2][4] = "Personal code:";
+	terms[2][5] = "Birthday date:";  
+	terms[2][6] = "Gender:";
+	terms[2][7] = "Male";
+	terms[2][8] = "Female";
+	terms[2][9] = "Other";
+	terms[2][10] = "I'm 18 y.o";
+	terms[2][11] = "Contacts";
+	terms[2][12] = "E-mail:";
+	terms[2][13] = "Mobile number:";
+	terms[2][14] = "Other:";
+	terms[2][15] = "Input rigth here";
+	terms[2][16] = "Package and its delivery";
+	terms[2][17] = "Choose package:";
+	terms[2][18] = "Standart";
+	terms[2][19] = "Modification 1";
+	terms[2][20] = "Modification 2";
+	terms[2][21] = "Choose the delivery method:";
+	terms[2][22] = "mail me";
+	terms[2][23] = "postal machine";
+	terms[2][24] = "post office";
+	terms[2][25] = "Your address:";
+	terms[2][26] = "Street";
+	terms[2][27] = "City";
+	terms[2][28] = "Zip";
+	terms[2][29] = "County";
+	terms[2][30] = "Country";
+	terms[2][31] = "Choose post:";
+	terms[2][32] = "Choose postal machine:";
+	terms[2][33] = "Choose post office:";
+	terms[2][34] = "Choose the time of getting a package";
+	terms[2][35] = "Choose start date when you wanna get a package:";
+	terms[2][36] = "Choose start time when you wanna get a package:";
+	terms[2][37] = "Choose end date when you wanna get a package:";
+	terms[2][38] = "Choose end time when you wanna get a package:";
+	terms[2][39] = "Accept the terms and conditions:";
+	terms[2][40] = "Submit";
+	
+	
+	function tranSlate(n){
+		document.getElementById("big-titel").innerHTML = terms[n][0]; 
+		//document.getElementById("firstAndLastName").innerHTML = terms[n][3] + ' ' + terms[n][2] + ' ' + terms[n][1]; 
+		document.getElementById("firstName").innerHTML = terms[n][1]; 
+		document.getElementById("lastName").innerHTML = terms[n][2]; 
+		document.getElementById("1header").innerHTML = terms[n][3]; 
+		document.getElementById("isiku").innerHTML = terms[n][4]; 
+		document.getElementById("BDay").innerHTML = terms[n][5]; 
+		document.getElementById("Gen").innerHTML = terms[n][6]; 
+		document.getElementById("M").innerHTML = terms[n][7]; 
+		document.getElementById("F").innerHTML = terms[n][8]; 
+		document.getElementById("O").innerHTML = terms[n][9]; 
+		document.getElementById("Adult").innerHTML = terms[n][10]; 
+		document.getElementById("2header").innerHTML = terms[n][11]; 
+		document.getElementById("eM").innerHTML = terms[n][12]; 
+		document.getElementById("pN").innerHTML = terms[n][13]; 
+		document.getElementById("oC").innerHTML = terms[n][14]; 
+		document.getElementById("otherConnectText").placeholder = terms[n][15];
+		document.getElementById("3header").innerHTML = terms[n][16]; 
+		document.getElementById("variPack").innerHTML = terms[n][17]; 
+		document.getElementById("Stan").innerHTML = terms[n][18]; 
+		document.getElementById("Modif1").innerHTML = terms[n][19]; 
+		document.getElementById("Modif2").innerHTML = terms[n][20]; 
+		document.getElementById("sposob").innerHTML = terms[n][21]; 
+		document.getElementById("posta").innerHTML = terms[n][22]; 
+		document.getElementById("autoPosta").innerHTML = terms[n][23]; 
+		document.getElementById("sam").innerHTML = terms[n][24]; 
+		document.getElementById("automatServicesL").innerHTML = terms[n][31];
+		document.getElementById("postServicesL").innerHTML = terms[n][32];
+		document.getElementById("mySelfL").innerHTML = terms[n][33];
+		///////
+		document.getElementById("plaze").innerHTML = terms[n][25]; 
+		document.getElementById("autocomplete").placeholder = terms[n][26]; 
+		document.getElementById("inputCity").placeholder = terms[n][27]; 
+		document.getElementById("inputZip").placeholder = terms[n][28]; 
+		document.getElementById("inputCounty").placeholder = terms[n][29]; 
+		document.getElementById("inputCountry").placeholder = terms[n][30]; 
+		///////
+		document.getElementById("4header").innerHTML = terms[n][34]; 
+		document.getElementById("viborDateSt").innerHTML = terms[n][35]; 
+		document.getElementById("viborTimeSt").innerHTML = terms[n][36]; 
+		document.getElementById("viborDateEnd").innerHTML = terms[n][37]; 
+		document.getElementById("viborTimeEnd").innerHTML = terms[n][38];
+		document.getElementById("uselessSign").innerHTML = terms[n][39];
+		document.getElementById("btnToDis").innerHTML = terms[n][40];
+		
+		////////
+		
+		if(n == 1){
+			document.getElementById("est").className += " active";
+			document.getElementById("eng").className = "tablinks";
+			document.getElementById("r").className = "tablinks";
+		}else if(n == 2){
+			document.getElementById("eng").className += " active";
+			document.getElementById("est").className = "tablinks";
+			document.getElementById("r").className = "tablinks";
+		}else{
+			document.getElementById("r").className += " active";
+			document.getElementById("eng").className = "tablinks";
+			document.getElementById("est").className = "tablinks";
+		}
+		
+	}
+	
+	function CheckThisOut(){
+		$('#myModal').modal('show');
+	}
+</script>
+
+</head>
+<body onLoad="tranSlate(0)">
+	
+<div class="tab">
+	<label id="big-titel">Форма для заполнения</label>
+  	<button id="r" class="tablinks active" onclick="tranSlate(0)">RU</button>
+  	<button id="eng" class="tablinks" onClick="tranSlate(2)">ENG</button>
+  	<button id="est" class="tablinks" onClick="tranSlate(1)">EST</button>
+</div>
+
+<div class="tabcontent col-12">
+	
+	
+	<div class="form-group">
+	<div class="row" id="row1">
+	<h3 id="1header">Персональная информация</h3>
+	<form id="formPerson" class="form">
+	<label id="lastName" for="lname">Фамилия:</label><br>
+	<input type="text" id="lname" name="lname" maxlength="128" required> <!--pattern="[^\d]+"--><br><br>
+	<label id="firstName" for="firstName">Имя:</label><br>
+	<input type="text" id="fname" name="fname" maxlength="128" required><br><br>
+	<label id="isiku" for="isikCod">Персональный код:</label><br>
+	<input type="text" id="isikCod" name="isikCod" onchange="IsikuKood()" required>
+		<label class="erLabel" id="1Er">Значение поля введено не правильно!</label>
+		<label class="okLabel" id="1Ok">Все верно!</label><br><br>
+	<label id="BDay" for="birthday">Дата рождения:</label><br>
+	<input type="date" id="birthday" name="birthday" min="1900-01-01" max="2120-01-01" required><br><br>
+	
+	<label id="Gen">Пол:</label><br>
+	<input type="radio" id="male" name="gender" value="male" required>
+	<label id="M" for="male">Мужчина</label><br>
+	<input type="radio" id="female" name="gender" value="female" required>
+	<label id="F" for="female">Женщина</label><br>
+	<input type="radio" id="other" name="gender" value="other" required>
+	<label id="O" for="other">Другой</label>
+	
+	<br><br>
+	<input type="checkbox" id="more18" name="more18" value="More18">
+	<label id="Adult" for="more18"> Мне больше 18 лет</label><br><br>
+	
+	</form>	
+	</div>
+	
+	<div class="row" id="row2">
+	<h3 id="2header">Контакты</h3>
+	<form id="formConnect" class="form">	
+	
+	<label id="eM" for="email">Адрес электронной почты:</label>
+	<input type="email" id="email" name="email"  maxlength="256" required><br><br>
+
+	<label id="pN" for="phone">Номер телефона с кодом:</label>
+	<input type="tel" id="phone" name="phone" pattern="\+[0-9]{3}[0-9]{4}[0-9]{4}" maxlength="256" required placeholder="+37255555555"><br><br>
+	
+	<label id="oC" for="otherConnect">Другой способ связи:</label>
+	<input type="checkbox" id="otherConnect" name="otherConnect" value="Other" onclick="otherCon()">
+	<input type="text" id="otherConnectText" name="otherConnect" onclick="otherCon()" placeholder="Введите тут"  maxlength="64000" disabled><br><br>
+	
+	</form>
+	</div>	
+	
+	<div class="row">
+	<h3 id="3header">Товар и его доставка</h3>
+	<form id="formPackage" class="form">
+	
+	<label id="variPack">Выбор варианта предоставляемого товара:</label><br>
+	<input type="radio" id="default" name="mods" value="Default" required>
+	<label id="Stan" for="default"> Стандартная</label><br>
+	<input type="radio" id="mod1" name="mods" value="Mod1" required>
+	<label id="Modif1" for="mod1"> Модификация 1</label><br>
+	<input type="radio" id="mod2" name="mods" value="Mod2" required>
+	<label id="Modif2" for="mod2"> Модификация 2</label><br><br>
+	
+	<label id="sposob" >Выбрать способ доставки:</label><br>
+	<input type="radio" id="post" name="wayToRecieve" value="postServices" required>
+	<label id="posta" for="post">прислать по почте</label><br>
+	<input type="radio" id="automat" name="wayToRecieve" value="automatServices" required>
+	<label id="autoPosta" for="automat">заберу из почтового автомата</label><br>
+	<input type="radio" id="myself" name="wayToRecieve" value="mySelf" required>
+	<label id="sam" for="myself">заберу сам из представительства</label><br><br>
+	
+	<div id="automatServices" style="display: none;"><label id="automatServicesL">Выбор варианта почтового автомата доставки:</label><br>
+		<select>
+			<option>Omniva</option>
+			<option>Smartpost</option>
+			<option>DHL</option>
+			<option>UPS</option>
+		</select><br><br>
+	</div>
+		
+	<div id="postServices" style="display: none;"><label id="postServicesL">Выбор варианта почтового отделения:</label><br>
+		<select>
+			<option>Omniva Pärnu Mnt</option>
+			<option>Smartpost Järve</option>
+			<option>Omniva Rocca al Mare</option>
+			<option>Omniva Ülemiste</option>
+		</select><br><br>
+	</div>
+		
+	<div id="mySelf" style="display: none;"><label id="mySelfL">Выбор варианта почтового представительства:</label><br>
+		<select>
+			<option>Laagri alevik Veskitammi tn, 10</option>
+			<option>Nõmme linnaosa Jaama tn, 1</option>
+			<option>Nõmme linnaosa Suur-Männiku tn, 8</option>
+			<option>Kristiine linnaosa Sõpruse pst, 33</option>
+		</select><br><br>
+	</div>
+		
+	<label id="plaze" >Указание адреса доставки с почтовым индексом:</label><br> 
+	<input type="street" class="form-control" id="autocomplete" placeholder="Street" maxlength="256" required>
+	<input type="city" class="form-control" id="inputCity" placeholder="City" maxlength="256" required>
+	<input type="zip" class="form-control" id="inputZip" onclick="checkZip()" placeholder="Zip" required><br><br>
+		<label class="erLabel" id="2Er">Значение поля введено не правильно!</label>
+		<label class="okLabel" id="2Ok">Все верно!</label>
+	<input type="county" class="form-control" id="inputCounty" placeholder="County" maxlength="256" required>
+	<input type="country" class="form-control" id="inputCountry" placeholder="Country" maxlength="256" required><br><br>
+	
+	</form>
+	</div>
+	
+	<div class="row" id="row3">
+	<h3 id="4header">Выбор времени получения товара</h3>
+	<form id="formData" class="form">
+
+	<label id="viborDateSt" for="recieveDay">Выбор даты начала периода получения товара:</label><br>
+	<input type="date" id="recieveDay" name="recieveDay" min="" max="2120-31-12" required><br><br>
+	
+	<label id="viborTimeSt" for="recieveTime">Выбор времени начала периода получения товара:</label>
+	<input type="time" id="recieveTime" name="recieveTime" min="00:00" max="23:59" onchange="EqualTime()" required><br><br>
+
+	<label id="viborDateEnd" for="recieveDay">Выбор даты конца периода получения товара:</label><br>
+	<input type="date" id="endDay" name="endDay" required><br><br>
+	
+	<label id="viborTimeEnd" for="recieveTime">Выбор времени конца периода получения товара:</label>
+	<input type="time" id="endTime" name="endTime" min="00:00" max="23:59" required><br><br>
+	
+	</form>
+	</div>
+		
+	<div class="row" id="row4">
+	<form id="formTerms" class="form">
+		<label id="uselessSign" for="termsAndConditions">Согласие с правилами предоставления услуги:</label> 
+		<input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="Terms" onclick="termsChecked()" required><br><br>
+
+		<!--<input type="button" class="btn" value="Подтвердить" onclick="termsChecked()" id="btnToDis" disabled>-->
+		<button type="button" class="btn btn-primary col-12" onClick="CheckThisOut()" id="btnToDis" disabled>Подтвердить</button>
+	</form>
+	</div>
+		
+	
+	
+	</div>
+	
+</div>
+	
+<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			...
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	
+	<script language="javascript">
+
+	/*function Check() {
+	let allAreFilled = true;
+	
+	const emailField = document.getElementById("email");
+	const telField = document.getElementById("phone");
+
+	isValidEmail = emailField.checkValidity();
+	isValidTel = telField.checkValidity();
+	
+	document.getElementById("myForm").querySelectorAll("[required]").forEach(function(i) {
+		if (!allAreFilled) return;
+		if (!i.value) allAreFilled = false;
+		if (i.type === "radio") {
+			let radioValueCheck = false;
+			document.getElementById("myForm").querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
+			if (r.checked) radioValueCheck = true;
+		})
+		allAreFilled = radioValueCheck;
+		}
+	})
+	if (!allAreFilled) {
+		alert('Не все поля заполнены! Вам следует заполнить все поля!!!');
+	}
+	else if(!isValidEmail){
+		alert('Поле email не правильно заполнено!');
+	}
+	else if(!isValidTel){
+		alert('Поле номер телефона с кодом не правильно заполнено!');
+	}
+	};*/
+		
+	/*function check4Adult(){
+		console.log(document.getElementById("birthday").valueAsDate);
+		/*if(document.getElementById("birthday").valueAsDate == "2002-01-01"){
+			document.getElementById("more18").disabled = true;
+		}
+		
+	}*/
+		
+	document.getElementById("recieveDay").valueAsDate = new Date();
+	document.getElementById("endDay").valueAsDate = new Date();
+	function EqualTime() {
+		document.getElementById("endTime").value = document.getElementById("recieveTime").value;
+	}
+		
+	function checkZip(){
+		if(/\d{6}/.test(document.getElementById("inputZip").value)){
+			document.getElementById("2Ok").style.display = "block";
+			document.getElementById("2Er").style.display = "none";
+		}else if(document.getElementById("inputZip").value == ""){
+			document.getElementById("2Er").style.display = "block";
+			document.getElementById("2Ok").style.display = "none";
+		}else{
+			document.getElementById("2Er").style.display = "block";
+			document.getElementById("2Ok").style.display = "none";
+		}
+	}
+	
+	function lNameCheck(){
+		if(document.getElementById("lname").value == ""){
+			document.getElementById("2Er").style.display = "block";
+			document.getElementById("2Ok").style.display = "none";
+		}else if(/\d/.test(document.getElementById("lname").value)){
+			document.getElementById("2Ok").style.display = "block";
+			document.getElementById("2Er").style.display = "none";
+		}else{
+			document.getElementById("2Er").style.display = "block";
+			document.getElementById("2Ok").style.display = "none";
+		}
+	}	
+		
+		
+	function IsikuKood(){
+		if(document.getElementById("isikCod").value == ""){
+			document.getElementById("1Er").style.display = "block";
+			document.getElementById("1Ok").style.display = "none";
+		}else if(/\d{11}/.test(document.getElementById("isikCod").value)){
+			document.getElementById("1Ok").style.display = "block";
+			document.getElementById("1Er").style.display = "none";
+		}else{
+			document.getElementById("1Er").style.display = "block";
+			document.getElementById("1Ok").style.display = "none";
+		}
+	}
+	
+	function otherCon(){
+		if(document.getElementById("otherConnect").checked){
+			document.getElementById("otherConnectText").disabled = false;
+		}else{
+			document.getElementById("otherConnectText").disabled = true;
+			document.getElementById("otherConnectText").value = null;
+		}
+	}
+	
+	function termsChecked(){
+		if(document.getElementById("termsAndConditions").checked){
+			document.getElementById("btnToDis").disabled = false;
+		}else{
+			document.getElementById("btnToDis").disabled = true;
+		}
+	}
+
+	var buttons = document.getElementsByName("wayToRecieve");
+	  function setWay(event) {
+		if(event.target.value == "postServices"){
+		   	document.getElementById("postServices").style.display = "block";
+		   	document.getElementById("automatServices").style.display = "none";
+			document.getElementById("mySelf").style.display = "none";
+		}else if(event.target.value == "automatServices"){
+		   	document.getElementById("postServices").style.display = "none";
+		   	document.getElementById("automatServices").style.display = "block";
+			document.getElementById("mySelf").style.display = "none";
+		}else if(event.target.value == "mySelf"){
+		   	document.getElementById("postServices").style.display = "none";
+		   	document.getElementById("automatServices").style.display = "none";
+			document.getElementById("mySelf").style.display = "block";
+		}
+		
+	  }
+	  for (var i = 0; i < buttons.length; i++)
+		buttons[i].addEventListener("change", setWay);
+	
+	
+	function openIt(evt, lang) {
+  		var i, tabcontent, tablinks;
+  		tabcontent = document.getElementsByClassName("tabcontent");
+  		for (i = 0; i < tabcontent.length; i++) {
+    		tabcontent[i].style.display = "none";
+  		}
+  		tablinks = document.getElementsByClassName("tablinks");
+  		for (i = 0; i < tablinks.length; i++) {
+    		tablinks[i].className = tablinks[i].className.replace(" active", "");
+  		}
+  		document.getElementById(lang).style.display = "block";
+  		evt.currentTarget.className += " active";
+	}
+	
+	</script>
+<script src="js/jquery-3.5.1.slim.min.js" ></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+</body>
+</html>
