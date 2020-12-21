@@ -441,7 +441,7 @@ nav{
 /* SIGN IN & SIGN UP */
 .mycontainer {
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
   /*background-color: #fff;*/
   min-height: 100vh;
   overflow: hidden;
