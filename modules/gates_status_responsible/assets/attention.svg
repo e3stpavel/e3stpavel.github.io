@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="9" height="37.462" viewBox="0 0 9 37.462">
+  <defs>
+    <style>
+      .cls-16 {
+        fill: #2c2c2c;
+      }
+    </style>
+  </defs>
+  <g id="attention" transform="translate(-308 -360.538)">
+    <path id="Path_41" data-name="Path 41" class="cls-16" d="M0,22.93H0V3.567S.476-.169,3.5.006,6.939,3.567,6.939,3.567V22.93s.044,3.813-3.439,3.6A3.617,3.617,0,0,1,0,22.93" transform="translate(315.692 387.072) rotate(180)"/>
+    <circle id="Ellipse_22" data-name="Ellipse 22" class="cls-16" cx="4.5" cy="4.5" r="4.5" transform="translate(308 389)"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.016" height="22.992" viewBox="0 0 20.016 22.992">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2c2c2c;
+      }
+    </style>
+  </defs>
+  <g id="arrows" transform="translate(-169.138 -816.044)">
+    <path id="Path_25" data-name="Path 25" class="cls-1" d="M0,12.224H0V1.9S.254-.09,1.866,0,3.7,1.9,3.7,1.9V12.224s.023,2.033-1.834,1.917A1.928,1.928,0,0,1,0,12.224" transform="translate(171.754 828.662) rotate(-135)"/>
+    <path id="Path_30" data-name="Path 30" class="cls-1" d="M0,12.224H0V1.9S.254-.09,1.866,0,3.7,1.9,3.7,1.9V12.224s.023,2.033-1.834,1.917A1.928,1.928,0,0,1,0,12.224" transform="translate(176.536 818.66) rotate(-45)"/>
+    <path id="Path_31" data-name="Path 31" class="cls-1" d="M0,12.224H0V1.9S.254-.09,1.866,0,3.7,1.9,3.7,1.9V12.224s.023,2.033-1.834,1.917A1.928,1.928,0,0,1,0,12.224" transform="translate(171.754 839.036) rotate(-135)"/>
+    <path id="Path_32" data-name="Path 32" class="cls-1" d="M0,12.224H0V1.9S.254-.09,1.866,0,3.7,1.9,3.7,1.9V12.224s.023,2.033-1.834,1.917A1.928,1.928,0,0,1,0,12.224" transform="translate(176.536 829.034) rotate(-45)"/>
+  </g>
+</svg>
