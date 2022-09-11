@@ -1,3 +1,1 @@
-# My portfolio and interactive CV page
-
-wip
+# WIP Portfolio
